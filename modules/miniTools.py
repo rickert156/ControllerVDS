@@ -38,6 +38,6 @@ def ListServersTXT(doc:str):
 
     return list_servers
 
-def run_command(command:str):
-    print(command)
+def run_command(command:str, number:int=None):
+    print(f"{GREEN}[{number}] {command}{RESET}")
     subprocess.run(command, shell=True)
