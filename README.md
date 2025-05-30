@@ -8,4 +8,5 @@
 python3 controller.py --command server.txt 'ssh root@{server} "ls" &'
 ```
 Вот так может выглядеть работа утилиты  
-![img](http://github.com/rickert156/ControllerVDS/blob/main/img/1.png)
+![img](https://raw.githubusercontent.com/rickert156/ControllerVDS/main/img/1.png)
+
