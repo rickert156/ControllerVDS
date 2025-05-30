@@ -7,6 +7,7 @@ from modules.miniTools import (
                greet
                )
 from modules.mailer.check import checkCount
+from modules.mailer.divide import DivideBase
 import sys
 
 def ControllerVDS():
@@ -28,9 +29,6 @@ def ControllerVDS():
             Если пытаемся использовать произвольную команду,
             но делаем это через одно место!
             """
-            print(
-                    f"{RED}Необходимо добавить файл и ввести "
-                    f"команду с переменной в скобках {{server}} !{RESET}")
             print(helper())
 
             ############################################################ 
@@ -48,6 +46,26 @@ def ControllerVDS():
             if '.csv' in servers:list_servers = ListServersCSV(doc=servers)
             if '.txt' in servers:list_servers = ListServersTXT(doc=servers)
             checkCount(list_servers=list_servers)
+
+        elif len(params) == 2 and params[1] == "--check-count":
+            print(helper())
+
+
+        elif len(params) == 4 and params[1] == "--divide-base":
+            """Разделение базы(CSV) на несколько равных частей"""
+            base = params[2]
+            try:
+                count_base = int(params[3])
+                """Принимаем только CSV базы"""
+                if '.csv' in base:
+                    DivideBase(base=base, count_base=count_base)
+
+            except ValueError:
+                print(
+                        f"{RED}Последним параметром необходимо передать "
+                        f"количество файлов, на которое будет разделена "
+                        f"исходная база!{RESET}")
+
 
         elif len(params) == 1:
             print(helper())

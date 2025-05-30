@@ -9,5 +9,12 @@ def helper():
                             переменную. Пример:
                             {GREEN}python3 controller.py --command server.txt "ls -l"
                             {RESET}
+    
+    --check-count           Параметр применяется к серверам для рассылки.
+                            Отображает количество имейлов в базе и количество
+                            отправленных писем. Более подробная информация в
+                            ControllerVDS/README.md. Вторым параметром передать
+                            файл csv или txt с серверами. Пример:
+                            {GREEN}python3 controller.py --check-count server.txt{RESET}
     """
     return text
