@@ -9,9 +9,8 @@ def initRequest(list_servers:list, command:str):
     for server in list_servers:
         number_server+=1
         if "{server}" in command:command = command.replace("{server}", server)
-        print(command)
-        #run_command(command=command, number=number_server)
-        print(divide_block())
+        #print(command)
+        run_command(command=command, number=number_server)
 
         """Возвращаем изначальное значение команды"""
         command = base_commamd

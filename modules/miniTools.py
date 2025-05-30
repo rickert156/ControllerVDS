@@ -41,3 +41,4 @@ def ListServersTXT(doc:str):
 def run_command(command:str, number:int=None):
     print(f"{GREEN}[{number}] {command}{RESET}")
     subprocess.run(command, shell=True)
+    print(divide_block())
