@@ -65,6 +65,10 @@ def ControllerVDS():
                         f"{RED}Последним параметром необходимо передать "
                         f"количество файлов, на которое будет разделена "
                         f"исходная база!{RESET}")
+                print(helper())
+
+        elif "--divide-base" in params and len(params) != 4:
+            print(helper())
 
 
         elif len(params) == 1:
