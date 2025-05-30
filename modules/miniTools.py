@@ -1,5 +1,17 @@
-import csv
-from modules.colors import RED, RESET
+import csv, subprocess
+from modules.colors import RED, RESET, GREEN
+import __init__
+
+def divide_block():
+    divide = "-"*80
+    return divide
+
+def greet():
+    text = (
+            f"{GREEN}Author:\t\t{__init__.__author__}\n"
+            f"Version:\t{__init__.__version__}\n{RESET}"
+            )
+    print(text)
 
 def ListServersCSV(doc:str):
     list_servers = []
@@ -26,4 +38,6 @@ def ListServersTXT(doc:str):
 
     return list_servers
 
-
+def run_command(command:str):
+    print(command)
+    subprocess.run(command, shell=True)
