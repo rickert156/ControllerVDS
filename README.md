@@ -23,3 +23,15 @@ python3 controller.py --check-count server.txt
 Таким будет вывод:  
 ![img](https://raw.githubusercontent.com/rickert156/ControllerVDS/main/img/2.png)
 
+**Divide Base**  
+Утилита позволяет разбить базу CSV на несколько равных частей, что бы в дальнейшем раскидать по серверам. В таблице должны быть поля: Email, Name, Company  
+
+| Email         |Name       |Company    |
+----------------|-----------|------------
+|test@test.com  |Rickert    | Rockstar  |
+
+Первым параметром передаем --divide-base, вторым - имя базы, последним - количество баз, которых должны быть по итогу. Пример применения:
+```sh
+python3 controller.py --divide-base Clutch.csv 10
+```
+
