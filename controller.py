@@ -8,7 +8,9 @@ from modules.miniTools import (
                )
 from modules.mailer.check import checkCount
 from modules.mailer.divide import DivideBase
-import sys
+from modules.mailer.copy_base import CopyBase
+from modules.mailer.config import base_dir
+import sys, os
 
 def ControllerVDS():
     try:
@@ -49,6 +51,19 @@ def ControllerVDS():
 
         elif len(params) == 2 and params[1] == "--check-count":
             print(helper())
+
+
+        elif len(params) == 3 and params[1] == "--cp-base":
+            """Копирование базы на сервер"""
+            if not os.path.exists(base_dir):
+                os.makedirs(base_dir)
+                print(f"Создана директорий {base_dir}! Добавь туда базы.")
+                sys.exit()
+            servers = params[2]
+            if '.csv' in servers:list_servers = ListServersCSV(doc=servers)
+            if '.txt' in servers:list_servers = ListServersTXT(doc=servers)
+
+            CopyBase(servers=list_servers)
 
 
         elif len(params) == 4 and params[1] == "--divide-base":

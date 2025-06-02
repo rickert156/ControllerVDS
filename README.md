@@ -35,3 +35,10 @@ python3 controller.py --check-count server.txt
 python3 controller.py --divide-base Clutch.csv 10
 ```
 
+**Копирования баз на сервера**
+Для быстрого копирования баз на сервера можно использовать флаг --cp-base [servers.txt]. Из директории Base будут прочитаны базы(их надо добавить), домены/IP серверов будут взяты из текстового файла(вторым параметром нужно передать)
+Пример: 
+```sh
+python3 controller.py --cp-base server.txt
+```
+Отправленные базы по серверам будет перемещены в *Done*
