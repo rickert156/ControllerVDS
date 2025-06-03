@@ -38,5 +38,5 @@ def DivideBase(base:str, count_base:int):
             except Exception as err:
                 print(
                         f"{RED}При обработке базы произошла ошибка: "
-                        "{err}{RESET}")
+                        f"{err}{RESET}")
                 break
