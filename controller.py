@@ -1,6 +1,7 @@
 from modules.colors import RED, RESET, GREEN
 from modules.helper import helper
 from modules.request import initRequest
+from modules.key import addKey
 from modules.miniTools import (
                ListServersCSV,
                ListServersTXT,
@@ -66,6 +67,16 @@ def ControllerVDS():
             CopyBase(servers=list_servers)
 
 
+        elif len(params) == 4 and params[1] == "--add-key":
+            """Добавляем ключ ssh на сервера"""
+            servers = params[2]
+            key = params[3]
+            if '.csv' in servers:list_servers = ListServersCSV(doc=servers)
+            if '.txt' in servers:list_servers = ListServersTXT(doc=servers)
+
+            addKey(servers=list_servers, key=key)
+            
+
         elif len(params) == 4 and params[1] == "--divide-base":
             """Разделение базы(CSV) на несколько равных частей"""
             base = params[2]
@@ -81,6 +92,7 @@ def ControllerVDS():
                         f"количество файлов, на которое будет разделена "
                         f"исходная база!{RESET}")
                 print(helper())
+
 
         elif "--divide-base" in params and len(params) != 4:
             print(helper())
