@@ -22,5 +22,15 @@ def helper():
                             последним параметром - количество баз, которые мы должны
                             получить. Пример:
                             {GREEN}python3 controller.py --divide-base Clutch.csv 10{RESET}
+
+    --cp-base               Копирование баз из Base/ по серверам. Достаточно передать 
+                            док с серверами вторым параметром. Отправленные базы будут
+                            перемещены в Done/ 
+                            Пример:
+                            {GREEN}python3 controller.py --cp-base servers.txt{RESET}
+
+    --add-key               Отправка ключа ssh на сервер. Вторым параметром передаем
+                            файл с серверами, последним - сам ключ. Пример:
+                            {GREEN}python3 controller.py --add-key servers.txt 'ssh-ed25519 key'{RESET}
     """
     return text
